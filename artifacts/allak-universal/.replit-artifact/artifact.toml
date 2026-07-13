@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Allak Universal LLC"
+version = "1.0.0"
+id = "artifacts/allak-universal"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22500
+
+[services.development]
+run = "pnpm --filter @workspace/allak-universal run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/allak-universal", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/allak-universal/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22500"
+BASE_PATH = "/"

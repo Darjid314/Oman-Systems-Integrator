@@ -1,10 +1,11 @@
-# [Project name]
+# Allak Universal LLC — Lead Generation Website
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A corporate lead-generation website for Allak Universal LLC, a systems integrator based in Barka, Oman, focused on government IT/networking tenders.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/api-server run dev` — run the API server (port from env)
+- `pnpm --filter @workspace/allak-universal run dev` — run the marketing site (served via its artifact workflow)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
@@ -19,18 +20,23 @@ _Replace the heading above with the project's name, and this line with one sente
 - Validation: Zod (`zod/v4`), `drizzle-zod`
 - API codegen: Orval (from OpenAPI spec)
 - Build: esbuild (CJS bundle)
+- Frontend: React + Vite (artifact `allak-universal`, served at `/`)
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/allak-universal` — the marketing/lead-gen site (single page: hero, services grid, about, government tender credibility, contact form)
+- `artifacts/api-server/src/routes/leads.ts` — `POST /api/leads` endpoint that saves contact form submissions
+- `lib/db/src/schema/leads.ts` — `leads` table (name, email, phone, company, message, createdAt)
+- `lib/api-spec/openapi.yaml` — source of truth for the `/leads` API contract
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Contact form submissions are persisted via a real backend endpoint (`useCreateLead` hook → `POST /api/leads` → `leads` table), not faked, since lead capture is the site's primary purpose.
+- No auth/admin UI for viewing leads yet — submissions are stored in the `leads` table and can be queried directly via the database.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Single-page corporate site presenting Allak Universal LLC's service lines (IT & networking, One Screen interactive displays, Huawei products, storage servers, firewalls/network security, VR/XR, structured cabling, CCTV, video walls, AV solutions, OT peripherals, desktop/IT support), an About section, a government-tender credibility section, and a working contact form that saves inquiries to the database.
 
 ## User preferences
 
@@ -38,7 +44,7 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- In this scaffold's `index.css`, any `@import url(...)` (e.g. Google Fonts) must come before `@import 'tailwindcss'` — CSS requires `@import` statements to precede other at-rules/declarations, and Tailwind's own import expands to non-import content.
 
 ## Pointers
 
