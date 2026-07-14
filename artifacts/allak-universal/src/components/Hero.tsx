@@ -1,8 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShieldCheck, Server, Network } from "lucide-react";
 import logoFull from "@/assets/brand/logo-full.png";
+import { useLanguage } from "@/lib/language-context";
+import { translations } from "@/lib/translations";
+import { cn } from "@/lib/utils";
 
 export const Hero = () => {
+  const { lang, dir } = useLanguage();
+  const t = translations[lang].hero;
+
   return (
     <section
       id="home"
@@ -24,34 +30,39 @@ export const Hero = () => {
               className="h-72 w-auto"
             />
             <span className="mt-1 text-center text-sm font-medium tracking-[0.3em] text-brand-teal uppercase">
-              Universal
+              {t.wordmark}
             </span>
           </div>
 
           <div className="max-w-3xl">
-            <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 backdrop-blur-sm px-3 py-1 mb-6 text-sm text-brand-cream/80">
+            <div className="inline-flex items-center space-x-2 rtl:space-x-reverse bg-white/5 border border-white/10 backdrop-blur-sm px-3 py-1 mb-6 text-sm text-brand-cream/80">
               <div className="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></div>
-              <span>Systems Integrator | Barka, Oman</span>
+              <span>{t.badge}</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-cream leading-[1.1] mb-6 tracking-tight">
-              Mission-Critical IT Infrastructure <span className="text-brand-teal">Delivered.</span>
+              {t.titleMain} <span className="text-brand-teal">{t.titleHighlight}</span>
             </h1>
 
             <p className="text-lg md:text-xl text-brand-cream/70 mb-10 max-w-2xl leading-relaxed">
-              Al Lak Universal specializes in precise, secure networking and systems integration solutions&mdash;the trusted partner for government IT tenders and enterprise infrastructure across the Sultanate.
+              {t.subtitle}
             </p>
 
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <a href="#contact">
                 <Button size="lg" className="rounded-none h-14 px-8 text-base font-semibold group bg-brand-teal hover:bg-brand-teal/90 text-white">
-                  Discuss Your Project
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  {t.ctaPrimary}
+                  <ArrowRight
+                    className={cn(
+                      "ml-2 h-4 w-4 rtl:ml-0 rtl:mr-2 transition-transform",
+                      dir === "rtl" ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"
+                    )}
+                  />
                 </Button>
               </a>
               <a href="#services">
                 <Button size="lg" variant="outline" className="rounded-none h-14 px-8 text-base font-semibold border-white/20 text-brand-cream hover:bg-white/10 hover:text-white">
-                  Explore Capabilities
+                  {t.ctaSecondary}
                 </Button>
               </a>
             </div>
@@ -59,15 +70,15 @@ export const Hero = () => {
             <div className="grid grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/10 max-w-2xl">
               <div className="flex flex-col space-y-2">
                 <ShieldCheck className="h-6 w-6 text-brand-teal" />
-                <span className="text-brand-cream/90 font-medium">Government Compliant</span>
+                <span className="text-brand-cream/90 font-medium">{t.stat1}</span>
               </div>
               <div className="flex flex-col space-y-2">
                 <Server className="h-6 w-6 text-brand-teal" />
-                <span className="text-brand-cream/90 font-medium">Enterprise Scale</span>
+                <span className="text-brand-cream/90 font-medium">{t.stat2}</span>
               </div>
               <div className="flex flex-col space-y-2">
                 <Network className="h-6 w-6 text-brand-teal" />
-                <span className="text-brand-cream/90 font-medium">End-to-End Integration</span>
+                <span className="text-brand-cream/90 font-medium">{t.stat3}</span>
               </div>
             </div>
           </div>

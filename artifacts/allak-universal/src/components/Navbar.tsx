@@ -4,10 +4,14 @@ import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import logoIcon from '@/assets/brand/logo-icon.png';
+import { useLanguage } from '@/lib/language-context';
+import { translations } from '@/lib/translations';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { lang, toggleLanguage } = useLanguage();
+  const t = translations[lang];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,11 +22,26 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: t.nav.home, href: '#home' },
+    { name: t.nav.services, href: '#services' },
+    { name: t.nav.about, href: '#about' },
+    { name: t.nav.contact, href: '#contact' },
   ];
+
+  const LanguageToggle = ({ className }: { className?: string }) => (
+    <button
+      onClick={toggleLanguage}
+      className={cn(
+        'flex items-center gap-1 border border-white/20 px-3 py-1.5 text-xs font-semibold tracking-wide text-brand-cream/90 hover:bg-white/10 hover:text-white transition-colors',
+        className
+      )}
+      aria-label="Switch language"
+    >
+      <span className={lang === 'en' ? 'text-brand-teal' : ''}>EN</span>
+      <span className="text-brand-cream/30">/</span>
+      <span className={lang === 'ar' ? 'text-brand-teal' : ''}>AR</span>
+    </button>
+  );
 
   return (
     <nav
@@ -54,7 +73,7 @@ export const Navbar = () => {
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -66,13 +85,15 @@ export const Navbar = () => {
             ))}
             <a href="#contact">
               <Button className="font-semibold rounded-none px-6 bg-brand-teal text-white hover:bg-brand-teal/90">
-                Get in Touch
+                {t.nav.cta}
               </Button>
             </a>
+            <LanguageToggle />
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="md:hidden">
+          <div className="flex items-center gap-3 md:hidden">
+            <LanguageToggle className="px-2.5 py-1" />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-brand-cream"
@@ -98,7 +119,7 @@ export const Navbar = () => {
           ))}
           <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
             <Button className="w-full mt-4 rounded-none bg-brand-teal text-white hover:bg-brand-teal/90">
-              Get in Touch
+              {t.nav.cta}
             </Button>
           </a>
         </div>
