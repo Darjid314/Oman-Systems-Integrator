@@ -24,7 +24,7 @@ export const GovernmentTenders = () => {
           </h2>
 
           <p className="text-lg md:text-xl text-brand-cream/60 leading-relaxed mb-10 max-w-2xl">
-            Delivering on government tenders requires more than technical capability&mdash;it demands precision, strict compliance, and unwavering reliability. Al Lak Universal LLC is structured to meet the exacting standards of public sector procurement.
+            Delivering on government tenders requires more than technical capability&mdash;it demands precision, strict compliance, and unwavering reliability. Al Lak Universal is structured to meet the exacting standards of public sector procurement.
           </p>
 
           <div className="grid sm:grid-cols-2 gap-x-8 gap-y-6 max-w-2xl border-t border-white/10 pt-10">

@@ -31,7 +31,7 @@ export const About = () => {
 
             <div className="space-y-6 text-lg text-slate-600 leading-relaxed mb-8">
               <p>
-                Based in Barka, Oman, Al Lak Universal LLC is a premier IT company specializing in mission-critical IT and networking solutions. We build the foundational technology that modern organizations and government institutions rely on to operate securely and efficiently.
+                Based in Barka, Oman, Al Lak Universal is a premier IT company specializing in mission-critical IT and networking solutions. We build the foundational technology that modern organizations and government institutions rely on to operate securely and efficiently.
               </p>
               <p>
                 Our core competency lies in understanding complex operational requirements and translating them into robust, vendor-agnostic infrastructure. We do not just supply equipment; we engineer solutions that ensure uptime, security, and scalability for years to come.

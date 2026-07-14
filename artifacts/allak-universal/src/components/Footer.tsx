@@ -7,14 +7,14 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <img src={logoIcon} alt="Al Lak Universal LLC" className="h-9 w-auto" />
+              <img src={logoIcon} alt="Al Lak Universal" className="h-9 w-auto" />
               <span className="flex flex-col leading-none">
                 <span className="font-serif text-lg font-semibold tracking-wide text-brand-cream">AL LAK</span>
-                <span className="text-[9px] font-medium tracking-[0.2em] text-brand-teal uppercase">Universal LLC</span>
+                <span className="text-[9px] font-medium tracking-[0.2em] text-brand-teal uppercase">Universal</span>
               </span>
             </div>
             <p className="max-w-sm mb-6 leading-relaxed">
-              Al Lak Universal LLC is an IT company delivering mission-critical IT infrastructure and government tender solutions in Oman.
+              Al Lak Universal is an IT company delivering mission-critical IT infrastructure and government tender solutions in Oman.
             </p>
             <div className="space-y-2 text-sm">
               <p>Office# 2A, 1st Floor, Al Farsi Building &ndash; Grand Central</p>
@@ -47,7 +47,7 @@ export const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/10 text-sm text-brand-cream/50 flex flex-col md:flex-row justify-between items-center">
-          <p>&copy; {new Date().getFullYear()} Al Lak Universal LLC. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Al Lak Universal. All rights reserved.</p>
           <p className="mt-2 md:mt-0">Systems Integrator &bull; Barka, Oman</p>
         </div>
       </div>

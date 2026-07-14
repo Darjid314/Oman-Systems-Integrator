@@ -73,7 +73,7 @@ export const Contact = () => {
               Discuss Your Infrastructure Requirements
             </h3>
             <p className="text-lg text-slate-600 leading-relaxed mb-10">
-              For tender inquiries, RFP submissions, or general consultation, please reach out to the Al Lak Universal LLC team.
+              For tender inquiries, RFP submissions, or general consultation, please reach out to the Al Lak Universal team.
             </p>
 
             <div className="space-y-8">
@@ -84,7 +84,7 @@ export const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Corporate Headquarters</h4>
                   <p className="text-slate-600 leading-relaxed">
-                    Al Lak Universal LLC<br />
+                    Al Lak Universal<br />
                     Office# 2A, 1st Floor, Al Farsi Building &ndash; Grand Central<br />
                     PO Box-210, PC-320, Barka, Sultanate of Oman
                   </p>

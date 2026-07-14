@@ -17,11 +17,16 @@ export const Hero = () => {
 
       <div className="container relative z-10 mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-[auto_1fr] gap-12 lg:gap-16 items-center">
-          <img
-            src={logoFull}
-            alt="Al Lak Universal LLC"
-            className="hidden lg:block h-72 w-auto justify-self-start"
-          />
+          <div className="hidden lg:flex flex-col justify-self-start">
+            <img
+              src={logoFull}
+              alt="Al Lak Universal"
+              className="h-72 w-auto"
+            />
+            <span className="mt-1 text-center text-sm font-medium tracking-[0.3em] text-brand-teal uppercase">
+              Universal
+            </span>
+          </div>
 
           <div className="max-w-3xl">
             <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 backdrop-blur-sm px-3 py-1 mb-6 text-sm text-brand-cream/80">
@@ -34,7 +39,7 @@ export const Hero = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-brand-cream/70 mb-10 max-w-2xl leading-relaxed">
-              Al Lak Universal LLC specializes in precise, secure networking and systems integration solutions&mdash;the trusted partner for government IT tenders and enterprise infrastructure across the Sultanate.
+              Al Lak Universal specializes in precise, secure networking and systems integration solutions&mdash;the trusted partner for government IT tenders and enterprise infrastructure across the Sultanate.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start gap-4">

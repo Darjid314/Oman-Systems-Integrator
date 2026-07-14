@@ -39,7 +39,7 @@ export const Navbar = () => {
             <Link href="/" className="flex items-center gap-3 group">
               <img
                 src={logoIcon}
-                alt="Al Lak Universal LLC"
+                alt="Al Lak Universal"
                 className="h-9 w-auto md:h-10"
               />
               <span className="hidden sm:flex flex-col leading-none">
@@ -47,7 +47,7 @@ export const Navbar = () => {
                   AL LAK
                 </span>
                 <span className="text-[9px] md:text-[10px] font-medium tracking-[0.2em] text-brand-teal uppercase">
-                  Universal LLC
+                  Universal
                 </span>
               </span>
             </Link>
