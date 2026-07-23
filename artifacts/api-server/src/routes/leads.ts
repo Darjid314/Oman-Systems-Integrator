@@ -17,7 +17,8 @@ router.post("/leads", async (req, res): Promise<void> => {
     .values(parsed.data)
     .returning();
 
-  res.status(201).json(CreateLeadResponse.parse(lead));
+  const serializedLead = { ...lead, createdAt: lead.createdAt.toISOString() };
+  res.status(201).json(CreateLeadResponse.parse(serializedLead));
 });
 
 export default router;
