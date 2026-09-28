@@ -43,7 +43,7 @@ jobs:
 
       - name: Build Allak Universal
         env:
-          BASE_PATH: /Oman-Systems-Integrator/
+          BASE_PATH: /
           PORT: 22500
           VITE_API_URL: https://oman-api-server.onrender.com
         run: pnpm --filter @workspace/allak-universal run build
