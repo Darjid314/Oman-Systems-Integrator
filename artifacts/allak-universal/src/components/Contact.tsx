@@ -48,16 +48,51 @@ export const Contact = () => {
     },
   });
 
+  const syncToLead2Sales = async (values: z.infer<typeof formSchema>) => {
+    const response = await fetch(
+      "https://svbswaqughuxcqefzqif.supabase.co/rest/v1/rpc/submit_public_lead",
+      {
+        method: "POST",
+        headers: {
+          apikey: "sb_publishable_1vVYLA0vXgqnc6RAFvxyeg_gh_peuzY",
+          Authorization: "Bearer sb_publishable_1vVYLA0vXgqnc6RAFvxyeg_gh_peuzY",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          p_token: "b9adcbb6e75e74b80374e16fac670e071cadace051ad7ff9",
+          p_name: values.name,
+          p_company_name: values.company || "",
+          p_phone: values.phone || "",
+          p_email: values.email,
+          p_requirement: values.message,
+        }),
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error("Lead2Sales sync failed");
+    }
+  };
+
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     createLead.mutate(
       { data: values },
       {
-        onSuccess: () => {
-          toast({
-            title: t.toastSuccessTitle,
-            description: t.toastSuccessDescription,
-          });
-          form.reset();
+        onSuccess: async () => {
+          try {
+            await syncToLead2Sales(values);
+            toast({
+              title: t.toastSuccessTitle,
+              description: t.toastSuccessDescription,
+            });
+            form.reset();
+          } catch {
+            toast({
+              variant: "destructive",
+              title: t.toastErrorTitle,
+              description: "Your enquiry was received, but Lead2Sales sync failed. Please try again shortly.",
+            });
+          }
         },
         onError: () => {
           toast({
