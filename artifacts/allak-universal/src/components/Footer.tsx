@@ -24,7 +24,7 @@ export const Footer = () => {
             <div className="space-y-2 text-sm">
               <p>Office# 2A, 1st Floor, Al Farsi Building &ndash; Grand Central</p>
               <p>PO Box-210, PC-320, Barka, Sultanate of Oman</p>
-              <p dir="ltr">sales@allakuniversal.com &nbsp;&bull;&nbsp; +968 9292-9191</p>
+              <p dir="ltr">sales@allakuniversal.com &nbsp;&bull;&nbsp; +968 9292 9191</p>
               <p dir="ltr">www.allakuniversal.com</p>
               <p className="pt-2 text-brand-cream/50">{t.contact.crLabel}: 1469780 &nbsp;&bull;&nbsp; {t.contact.vatinLabel}: OM1100327696</p>
             </div>
