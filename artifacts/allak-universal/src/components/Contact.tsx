@@ -142,7 +142,7 @@ export const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">{t.phoneLabel}</h4>
                   <p className="text-slate-600 leading-relaxed" dir="ltr">
-                    +968 9292-9191<br />
+                    +968 9292 9191<br />
                     <span className="text-sm text-slate-500" dir={lang === "ar" ? "rtl" : "ltr"}>{t.phoneOwner}</span>
                   </p>
                 </div>
@@ -168,7 +168,7 @@ export const Contact = () => {
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">{t.registrationLabel}</h4>
                   <p className="text-slate-600 leading-relaxed">
-                    {t.crLabel}: 1469708<br />
+                    {t.crLabel}: 1469780<br />
                     {t.vatinLabel}: OM1100327696
                   </p>
                 </div>
